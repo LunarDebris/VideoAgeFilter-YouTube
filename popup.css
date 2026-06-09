@@ -1,0 +1,192 @@
+:root {
+  --bg: #0b0b0d;
+  --panel: #161619;
+  --panel-2: #1f1f24;
+  --line: #2a2a30;
+  --ink: #f4f4f6;
+  --muted: #9a9aa4;
+  --faint: #6b6b74;
+  --accent: #ff2d2d;
+  --accent-soft: rgba(255, 45, 45, 0.14);
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { background: var(--bg); }
+
+body {
+  width: 300px;
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  padding: 18px 18px 16px;
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(255, 45, 45, 0.10), transparent 60%),
+    var(--bg);
+}
+
+/* Header */
+.head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(160deg, var(--accent), #b80f0f);
+  box-shadow: 0 4px 14px rgba(255, 45, 45, 0.35);
+}
+.titles h1 { font-size: 15px; font-weight: 700; letter-spacing: 0.2px; }
+.titles p { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+/* Rows + toggle switch */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.toggle-row { padding: 16px 0 4px; }
+.row-label { font-size: 13px; font-weight: 600; }
+
+.switch { position: relative; display: inline-block; cursor: pointer; flex: 0 0 auto; }
+.switch input { position: absolute; opacity: 0; pointer-events: none; }
+.track {
+  display: block;
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+.switch input:checked + .track {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.switch input:checked + .track .thumb {
+  transform: translateX(18px);
+  background: var(--accent);
+}
+
+/* Age panel */
+.panel {
+  margin-top: 14px;
+  padding: 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: opacity 0.18s ease;
+}
+.panel.disabled { opacity: 0.45; pointer-events: none; }
+
+.lead {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 11px;
+}
+
+.controls { display: flex; flex-direction: column; gap: 12px; }
+
+.field { display: flex; align-items: baseline; gap: 8px; }
+#value {
+  width: 72px;
+  padding: 9px 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  outline: none;
+  font-family: inherit;
+}
+#value:focus { border-color: var(--accent); }
+.hint { font-size: 12px; color: var(--muted); }
+
+/* Segmented unit selector — 3 columns x 2 rows for 6 units */
+.seg {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.seg-btn {
+  padding: 7px 2px;
+  font-size: 11.5px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.seg-btn:hover { color: var(--ink); }
+.seg-btn.active { color: #fff; background: var(--accent); }
+
+/* Summary */
+.summary {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+}
+.summary strong { color: var(--ink); font-weight: 700; }
+
+/* Clean-up section */
+.section {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.section-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.el-row { padding: 8px 0; }
+.el-row + .el-row { border-top: 1px solid var(--line); }
+.row-text { min-width: 0; }
+.row-text .row-label { display: block; }
+.tag {
+  display: block;
+  margin-top: 3px;
+  font-family: "SF Mono", "Consolas", "Liberation Mono", monospace;
+  font-size: 9.5px;
+  line-height: 1.35;
+  color: var(--faint);
+  word-break: break-all;
+}
