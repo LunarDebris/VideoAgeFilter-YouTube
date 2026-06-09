@@ -3,7 +3,7 @@
   "author": "LunarDebris",
   "name": "Video Age Filter YouTube",
   "version": "1.0.0",
-  "description": "Hide YouTube videos older than a chosen age (days, weeks, months, or years) on the home page and Subscriptions feed plus other interface clean-ups.",
+  "description": "Hide YouTube videos, older than a chosen age, on the home page and Subscriptions feed plus other enhancements.",
   "permissions": ["storage"],
   "action": {
     "default_popup": "popup.html",
