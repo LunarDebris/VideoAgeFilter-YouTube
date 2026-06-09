@@ -1,0 +1,5 @@
+[Rr]eleases/
+.vs/
+.idea/
+
+*.xpi
