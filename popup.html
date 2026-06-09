@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Video Age Filter</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="head">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20">
+          <path d="M3 4h18l-7 8v7l-4 2v-9z" fill="currentColor" />
+        </svg>
+      </div>
+      <div class="titles">
+        <h1>Video Age Filter</h1>
+        <p>YouTube Home &amp; Subscriptions</p>
+      </div>
+    </header>
+
+    <div class="row toggle-row">
+      <label for="enabled" class="row-label">Filtering</label>
+      <label class="switch">
+        <input type="checkbox" id="enabled" />
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+    </div>
+
+    <div class="panel" id="panel">
+      <p class="lead">Hide videos older than</p>
+
+      <div class="controls">
+        <div class="field">
+          <input type="number" id="value" inputmode="numeric" min="1" max="4" value="1" />
+          <span class="hint" id="rangeHint">(1&ndash;4)</span>
+        </div>
+        <div class="seg" role="tablist" id="unit">
+          <button type="button" class="seg-btn" data-unit="minutes">Minutes</button>
+          <button type="button" class="seg-btn" data-unit="hours">Hours</button>
+          <button type="button" class="seg-btn" data-unit="days">Days</button>
+          <button type="button" class="seg-btn" data-unit="weeks">Weeks</button>
+          <button type="button" class="seg-btn" data-unit="months">Months</button>
+          <button type="button" class="seg-btn" data-unit="years">Years</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="summary" id="summary"></p>
+
+    <div class="section">
+      <p class="section-title">Clean up feed</p>
+
+      <div class="row el-row">
+        <div class="row-text">
+          <span class="row-label">Shorts</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="hideShorts" />
+          <span class="track"><span class="thumb"></span></span>
+        </label>
+      </div>
+
+      <div class="row el-row">
+        <div class="row-text">
+          <span class="row-label">Topics</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="hideChipsShelf" />
+          <span class="track"><span class="thumb"></span></span>
+        </label>
+      </div>
+
+      <div class="row el-row">
+        <div class="row-text">
+          <span class="row-label">"Talk To"</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="hideTalkToRecs" />
+          <span class="track"><span class="thumb"></span></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
